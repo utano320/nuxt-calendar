@@ -16,24 +16,24 @@
 import { mapGetters } from 'vuex';
 
 export default {
+  computed: {
+    ...mapGetters(['isLoggedIn'])
+  },
   beforeUpdate: function() {
     // ログイン済みなら/memberへリダイレクト
-    console.log(["mounted", this.isLoggedIn]);
+    console.log(['mounted', this.isLoggedIn]);
     if (this.isLoggedIn) {
       this.$router.replace('/member');
     } else {
       console.log('no login');
     }
   },
-  computed: {
-    ...mapGetters(['isLoggedIn'])
-  },
   methods: {
     login() {
       this.$store.dispatch('login');
     }
   }
-}
+};
 </script>
 
 <style>

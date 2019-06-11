@@ -6,6 +6,9 @@
 import { mapGetters } from 'vuex';
 
 export default {
+  computed: {
+    ...mapGetters(['isLoggedIn'])
+  },
   mounted: async function() {
     await this.$store.dispatch('handleAuthentication');
     if (this.isLoggedIn) {
@@ -13,9 +16,6 @@ export default {
     } else {
       this.$router.replace('/');
     }
-  },
-  computed: {
-    ...mapGetters(["isLoggedIn"])
   }
-}
+};
 </script>

@@ -7,7 +7,7 @@ class Auth0Util {
       domain: process.env.domain,
       clientID: process.env.clientID,
       responseType: 'id_token',
-      redirectUri: process.env.baseUrl + '/callback',
+      redirectUri: process.env.baseUrl + '/callback'
     });
   }
 
@@ -15,7 +15,7 @@ class Auth0Util {
     this.webAuth.authorize();
   }
 
-  async getAuthResult() {
+  getAuthResult() {
     return new Promise((resolve, reject) => {
       this.webAuth.parseHash((err, authResult) => {
         if (err) {
@@ -34,4 +34,4 @@ class Auth0Util {
 
 export default ({ app }, inject) => {
   inject('auth0', new Auth0Util());
-}
+};

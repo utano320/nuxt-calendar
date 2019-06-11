@@ -21,6 +21,9 @@
 import { mapGetters } from 'vuex';
 
 export default {
+  computed: {
+    ...mapGetters(['isLoggedIn', 'userProfile'])
+  },
   beforeCreate() {
     console.log(['beforeCreate', this.isLoggedIn]);
   },
@@ -41,15 +44,12 @@ export default {
   updated() {
     console.log(['updated', this.isLoggedIn]);
   },
-  computed: {
-    ...mapGetters(['isLoggedIn', 'userProfile'])
-  },
   methods: {
     logout() {
       this.$store.dispatch('logout');
     }
   }
-}
+};
 </script>
 
 <style>
