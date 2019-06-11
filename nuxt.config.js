@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   /*
   ** Headers of the page
@@ -17,6 +19,14 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+
+  plugins: ['~/plugins/auth0.js'],
+
+  modules: [
+    '@nuxtjs/bulma',
+    '@nuxtjs/font-awesome',
+    // '@nuxtjs/dotenv'
+  ],
   /*
   ** Build configuration
   */
@@ -34,6 +44,10 @@ module.exports = {
         })
       }
     }
+  },
+  env: {
+    baseUrl: process.env.BASE_URL,
+    domain: process.env.AUTH0_DOMAIN,
+    clientID: process.env.AUTH0_CLIENT_ID
   }
 }
-

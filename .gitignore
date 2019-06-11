@@ -9,3 +9,9 @@ npm-debug.log
 
 # Nuxt generate
 dist
+
+# dotenv environment variables file
+.env
+
+# Mac
+.DS_Store
